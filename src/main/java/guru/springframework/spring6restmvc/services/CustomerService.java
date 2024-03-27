@@ -71,4 +71,8 @@ public class CustomerService {
 
         customerMap.put(existing.getId(),existing);
     }
+
+    public void deleteCustomerById(UUID customerId) {
+        customerMap.remove(customerId);
+    }
 }
