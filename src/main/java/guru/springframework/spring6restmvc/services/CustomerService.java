@@ -63,4 +63,12 @@ public class CustomerService {
         return savedCustom;
 
     }
+
+    public void updateCustomerById(UUID customerId, Customer customer) {
+        Customer existing = customerMap.get(customerId);
+        existing.setCustomerName(customer.getCustomerName());
+        existing.setLastModifiedDate(LocalDateTime.now());
+
+        customerMap.put(existing.getId(),existing);
+    }
 }
