@@ -50,4 +50,17 @@ public class CustomerService {
 
         return customerMap.get(id);
     }
+
+    public Customer saveCustomer(Customer customer) {
+        Customer savedCustom = Customer.builder()
+                .id(UUID.randomUUID())
+                .version(customer.getVersion())
+                .customerName(customer.getCustomerName())
+                .createdDate(LocalDateTime.now())
+                .lastModifiedDate(LocalDateTime.now())
+                .build();
+        customerMap.put(savedCustom.getId(),savedCustom);
+        return savedCustom;
+
+    }
 }
